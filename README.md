@@ -1,7 +1,8 @@
 # createIEMgroup
 An example I developed for an Airlines, using either python or powershell to create groups in BF from names in a text file
 
-An example of how it is used:
+An example of how it is used (see docs subdirectory for .gif of resulting console <note that it shows 0 member computers, 
+b/c it was taken before member computers 'reported back in'>):
 $ createIEMcomputerGroup.py MyBlahGrojp computer_group_members.txt -u adminMO -p adminmo
 
 Heres the response XML about the action that I invoked:
