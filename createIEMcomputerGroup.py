@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # AUTHOR: Created by John Singer, 2.6.15 for AirCarrier/ApplePie Airlines.
-# Updated: 9.11.17-jps
 # Any usage must include give credit to the above.
 #
 import sys
@@ -10,7 +9,7 @@ from argparse import ArgumentParser
 from time import strftime
 import xml.etree.ElementTree as Et
 
-usage = """createIEMComputerGroup.py <group name> -f <group filename> [options]
+usage = """createIEMComputerGroup.py <group name> <group filename> [options]
 
 Create an automatic group within IBM Endpoint Manager master-actionsite for
        use in targetting fixlets
@@ -86,33 +85,35 @@ if __name__ == '__main__':
 
 # If there are no cmdline arguments for username/password, just output the generated XML to the console, otherwise 'push' group into IEM.
         if not args.user or not args.password:
-            print "\n", newXml
+            print( "\n", newXml )
 #            outFn = 'final' + strftime("%H-%M-%S") + '.xml'
 #            with open(outFn, 'w') as f:
 #                f.write(newXml)
 #                f.close()
             exit()
 
-        s1 = 'adhaytem0a.'
+        s1a = 'adhaytem0a.'
+        s1b = 'ad.'
         s2a = 'csueast'
         s2b = 'bay'
         s3 = '.edu'
-        server = s1 + s2a + s2b + s3
+        server = s1a + s1b + s2a + s2b + s3
+
         port = '52311'
         baseurl = 'https://' + server + ':' + port + '/api'
 
         r = requests.get(baseurl+'/login',verify=False,auth=(user,password))
         if r.status_code != 200:
-            print r.status_code
+            print( r.status_code )
             exit()
 
         # After logging in, issue request to create IEM computer group with indicated name/members, printing returned XML
         r = requests.post(baseurl+'/computergroups/master',verify=False,auth=(user, password), data=newXml)
         if r.status_code != 200:
-            print r.status_code
+            print( r.status_code )
             exit()
         else:
-            print '\nHeres the response XML about the action that I invoked: \n', r.text
+            print( '\nHeres the response XML about the action that I invoked: \n', r.text )
 
 # Handle any exceptions, printing out error code
     except SystemExit:
