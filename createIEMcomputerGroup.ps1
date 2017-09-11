@@ -55,7 +55,11 @@ add-type @"
 # Create variables to store the values consumed by the Invoke-WebRequest command.
 #
         $username = $user
-        $baseurl = "https://grasskeet:52311/api"
+	$b1a = "adhaytem0a."
+	$b1b = "ad."
+	$b2 = "csueast"
+	$b3 = "bay.edu"
+        $baseurl = "https://" + $b1a + $b1b + $b2 + $b3 + ":52311/api"
 
         $EncodedAuthorization = [System.Text.Encoding]::UTF8.GetBytes($username + ':' + $password)
         $EncodedPassword = [System.Convert]::ToBase64String($EncodedAuthorization)
