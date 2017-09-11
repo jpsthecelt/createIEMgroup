@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # AUTHOR: Created by John Singer, 2.6.15 for AirCarrier/ApplePie Airlines.
+# Updated: 9.11.17-jps
 # Any usage must include give credit to the above.
 #
 import sys
@@ -92,7 +93,11 @@ if __name__ == '__main__':
 #                f.close()
             exit()
 
-        server = 'grasskeet'
+        s1 = 'adhaytem0a.'
+        s2a = 'csueast'
+        s2b = 'bay'
+        s3 = '.edu'
+        server = s1 + s2a + s2b + s3
         port = '52311'
         baseurl = 'https://' + server + ':' + port + '/api'
 
