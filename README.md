@@ -25,3 +25,8 @@ for some of the thinking behind 'why I did it this way']
 -jps
 
 -jps -- updated for current use - 9.11.17
+
+-jps -- So (for joy! for joy!) it turns out that you can run Powershell on linux and Mac, now, too! [not that I'm a Powershell 'fanboy'; 
+as the syntax sux and, I think, vastly inferior to running .fsx scripts].
+So anyway, for didactic purposes, I've modified the original so that it runs on MacOS.  The original used 'in-line' compilation of C# code to bypass certificate-verification (which doesn't, yet, work on Powershell-Core).  To allow this to work in a debug-environment, I've added the '-SkipCertificateCheck' to each Invoke-WebRequest. I've also added a screenshot of running it within VScode on the mac, communicating with BigFix and successfully creating a new group.
+
